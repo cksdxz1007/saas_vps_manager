@@ -1,0 +1,17 @@
+{% extends "services/base.html" %}
+{% block content %}
+    <h1>服务列表</h1>
+    <a href="{% url 'add_service' %}">添加新服务</a>
+    <ul>
+        {% for service in services %}
+            <li>
+                <strong>{{ service.name }}</strong><br>
+                供应商: {{ service.vendor }}<br>
+                平台: {{ service.platform }}<br>
+                费用: ¥{{ service.cost }}<br>
+                续订日期: {{ service.renewal_date }}<br>
+                账号信息: {{ service.account_info }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
